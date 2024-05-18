@@ -1,4 +1,4 @@
-import { allDocumentTypes } from "../utils/linkHelper";
+import { allDocumentTypes } from "../utils/referenceHelper";
 
 export default {
   type: "object",

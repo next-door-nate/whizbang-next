@@ -9,6 +9,9 @@ import post from "./schemas/post";
 import header from "./schemas/header";
 import navItem from "./schemas/navItem";
 import footer from "./schemas/footer";
+import theme from "./schemas/theme";
+import globalConfig from "./schemas/globalConfig";
+import faqBlock from "./schemas/faqBlock";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,10 +20,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     post,
     header,
     footer,
+    theme,
+    globalConfig,
 
     //blocks
     blocks,
     bannerHome,
+    faqBlock,
 
     //utilities
     meta,
