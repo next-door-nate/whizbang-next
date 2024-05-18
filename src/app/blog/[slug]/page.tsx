@@ -42,9 +42,9 @@ export default async function Home({ params }: { params: { slug: string } }) {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const pages = await client.fetch<Page>(`*[_type == "post"]`);
+  const posts = await client.fetch<Post[]>(`*[_type == "post"]`);
 
-  return pages.map((page) => ({
-    slug: page.slug.current,
+  return posts.map((post) => ({
+    slug: post.slug?.current,
   }));
 }
