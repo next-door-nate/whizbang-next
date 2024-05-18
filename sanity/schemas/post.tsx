@@ -1,8 +1,8 @@
 export default {
   type: "document",
-  name: "page",
-  title: "Pages",
-  icon: () => <span style={{ fontSize: "1rem" }}>📄</span>,
+  name: "post",
+  title: "Posts",
+  icon: () => <span style={{ fontSize: "1rem" }}>📰</span>,
   groups: [
     { name: "main", title: "Main", default: true },
     { name: "seo", title: "SEO" },

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Blocks from "./components/Blocks";
 
 import { client } from "./utils/sanity/client";
 
@@ -13,6 +14,7 @@ type Page = {
   slug?: {
     current: string;
   };
+  blocks?: any;
 };
 
 export default async function Home() {
@@ -24,13 +26,14 @@ export default async function Home() {
       title,
       description,
       image,
-    }
+    },
+    blocks[],
   }`);
 
+  console.log(home);
   return (
     <main className="flex min-h-screen flex-col items-start justify-start p-24">
-      <h1 className="text-3xl font-bold">{home.title}</h1>
-      <h2>{home.meta?.title}</h2>
+      <Blocks blocks={home.blocks} />
     </main>
   );
 }
