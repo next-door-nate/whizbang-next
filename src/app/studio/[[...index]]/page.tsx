@@ -1,5 +1,6 @@
+"use client";
+
 export const runtime = "edge";
-("use client");
 
 /**
  * This route is responsible for the built-in authoring environment using Sanity Studio.
