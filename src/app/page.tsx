@@ -2,6 +2,8 @@ import Image from "next/image";
 import Blocks from "./components/Blocks";
 
 import { client } from "./utils/sanity/client";
+import { blocksQuery, globalConfigQuery, pageQuery } from "./utils/queries";
+import Layout from "./components/Layout";
 
 type Page = {
   _id: string;
@@ -19,21 +21,14 @@ type Page = {
 
 export default async function Home() {
   let home = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
-    _id,
-    slug,
-    title,
-    meta{
-      title,
-      description,
-      image,
-    },
-    blocks[],
+    ${pageQuery}
   }`);
 
-  console.log(home);
+  let globalConfig = await client.fetch(globalConfigQuery);
+
   return (
-    <main className="flex min-h-screen flex-col items-start justify-start p-24">
+    <Layout header={globalConfig.header} footer={globalConfig.footer}>
       <Blocks blocks={home.blocks} />
-    </main>
+    </Layout>
   );
 }

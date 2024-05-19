@@ -1,0 +1,11 @@
+.footer {
+  background: #2f384b;
+  padding: 6.4rem 0 4rem;
+  min-height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  color: var(--heading-text-color);
+}

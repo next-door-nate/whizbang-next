@@ -16,9 +16,15 @@
   }
 }
 
-body {
+html:not(".sanity-studio") {
+  font-size: 62.5%;
+}
+
+body:not(".sanity-studio") {
   color: rgb(var(--foreground-rgb));
-  background: rgb(from #0000ff r g b / 0.1);
+  /* background: rgb(from #0000ff r g b / 0.1); */
+  background-color: var(--background-color);
+  font-size: 16px;
 }
 
 @layer utilities {
