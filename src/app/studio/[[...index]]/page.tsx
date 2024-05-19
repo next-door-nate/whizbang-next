@@ -21,8 +21,8 @@ export default function StudioPage() {
     let html = document.querySelector("html");
     let body = document.querySelector("body");
 
-    html?.classList.add("studio");
-    body?.classList.add("studio");
+    html?.classList.add("sanity-studio");
+    body?.classList.add("sanity-studio");
   }, []);
 
   return <NextStudio config={config} />;
