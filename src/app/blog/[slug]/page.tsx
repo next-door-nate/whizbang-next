@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { client } from "../../utils/sanity/client";
+import { client } from "@/app/utils/sanity/client";
 
 type Post = {
   _id: string;

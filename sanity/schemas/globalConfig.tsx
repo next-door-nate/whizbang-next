@@ -1,5 +1,3 @@
-import { allDocumentTypes } from "../utils/referenceHelper";
-
 export default {
   name: "globalConfig",
   _id: "globalConfig",

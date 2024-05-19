@@ -13,7 +13,17 @@ export const runtime = "edge";
 
 import { NextStudio } from "next-sanity/studio";
 import config from "../../../../sanity.config";
+import { useEffect } from "react";
 
 export default function StudioPage() {
+  // making sure base 10 rem sizing doesn't shrink the studio
+  useEffect(() => {
+    let html = document.querySelector("html");
+    let body = document.querySelector("body");
+
+    html?.classList.add("studio");
+    body?.classList.add("studio");
+  }, []);
+
   return <NextStudio config={config} />;
 }
