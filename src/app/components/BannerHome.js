@@ -10,7 +10,7 @@ export default function BannerHome({ banner }) {
         {banner.subtitle && <RichTextRenderer blocks={banner.subtitle} />}
         {banner.ctas.length > 0 &&
           banner.ctas.map((cta) => {
-            return <div>{cta.text}</div>;
+            return <div key={cta._key}>{cta.text}</div>;
           })}
       </Container>
     </section>
