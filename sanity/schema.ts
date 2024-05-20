@@ -14,6 +14,7 @@ import theme from "./schemas/theme";
 import globalConfig from "./schemas/globalConfig";
 import faqBlock from "./schemas/faqBlock";
 import separator from "./schemas/separator";
+import richTextBlock from "./schemas/richTextBlock";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -31,6 +32,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     bannerPage,
     faqBlock,
     separator,
+    richTextBlock,
 
     //utilities
     meta,

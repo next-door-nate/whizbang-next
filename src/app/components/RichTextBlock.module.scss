@@ -1,0 +1,13 @@
+.block {
+  padding: 8rem 0;
+
+  &[data-center="true"] {
+    * {
+      text-align: center;
+    }
+  }
+
+  [data-container] > :last-child {
+    margin-bottom: 0;
+  }
+}

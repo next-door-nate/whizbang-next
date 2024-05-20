@@ -1,6 +1,7 @@
 import BannerHome from "./BannerHome";
 import BannerPage from "./BannerPage";
 import FaqBlock from "./FaqBlock";
+import RichTextBlock from "./RichTextBlock";
 import Separator from "./Separator";
 
 export default function Blocks({ blocks }) {
@@ -17,6 +18,8 @@ export default function Blocks({ blocks }) {
               return <FaqBlock block={block} key={block._key} />;
             case "separator":
               return <Separator separator={block} key={block._key} />;
+            case "rich_text_block":
+              return <RichTextBlock block={block} key={block._key} />;
           }
 
           return <p key={`noblockfound-` + i}>{block._type}</p>;

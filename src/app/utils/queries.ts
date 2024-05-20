@@ -47,6 +47,24 @@ export const metaQuery = `
   image,
 `;
 
+export const richTextQuery = `
+...,
+asset->{
+    ...,
+    "_key": _id
+},
+markDefs[]{
+    ...,
+    _type == "link_main" => {
+        "linkObj": {
+            "_type": link->_type,
+            "slug": link->slug,
+            "external_link": external_link
+        },
+    },
+},
+`;
+
 export const blocksQuery = `
   _type,
   _key,
@@ -105,7 +123,12 @@ export const blocksQuery = `
   _type == "separator" => {
     theme,
     style,
-  }
+  },
+
+  _type == "rich_text_block" => {
+    center,
+    rich_text,
+  },
 `;
 
 export const pageQuery = `
