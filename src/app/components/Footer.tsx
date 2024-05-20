@@ -26,6 +26,26 @@ export default function Footer({ footer }: FooterProps) {
         <div className={styles.wrap}>
           <Link href="/">
             <span className={styles.logo}>Whizbang!</span>
+
+            {footer.social && (
+              <div className={styles.social}>
+                <nav>
+                  {footer.social.map((platform) => {
+                    return (
+                      <div key={platform._key}>
+                        <Link
+                          href={platform.link}
+                          title={`Follow me on ` + platform.name}
+                          target="_blank"
+                        >
+                          {platform.name}
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </nav>
+              </div>
+            )}
           </Link>
 
           {footer.nav && (
