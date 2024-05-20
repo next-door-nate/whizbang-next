@@ -46,6 +46,7 @@ export default defineType({
       name: "center",
       title: "Center content?",
       description: "Activate this if you wish to center the content",
+      initialValue: false,
     }),
   ],
   preview: {
