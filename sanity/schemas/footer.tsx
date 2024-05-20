@@ -10,6 +10,12 @@ export default {
       title: "Title",
     },
     {
+      type: "rich_text",
+      name: "blurb",
+      title: "Blurb",
+      description: "For best results keep it short and sweet",
+    },
+    {
       type: "array",
       name: "nav",
       title: "Navigation",

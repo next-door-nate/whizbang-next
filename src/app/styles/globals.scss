@@ -48,19 +48,19 @@ body:not(.sanity-studio) {
 
   &:hover {
     background-color: var(--button-primary-hover);
-    color: white;
-    /* border-color: var(--color-button-hover-text); */
+    color: var(--button-primary-hover-text);
     transform: scale(1.05) !important;
   }
 
   &:active {
-    background-color: rgb(230, 230, 230);
-    transform: scale(1) !important;
+    background-color: blue !important;
+    color: var(--button-primary-active-text);
+    transform: scale(2) !important;
   }
 
   &[data-button="secondary"] {
-    background: var(--button-primary);
-    color: var(--button-primary-text);
+    background: var(--button-secondary);
+    color: var(--button-secondary-text);
   }
 
   &[data-button="text"] {

@@ -52,6 +52,7 @@ export const blocksQuery = `
   _key,
 
   _type == "banner_home" => {
+    eyebrow,
     title,
     subtitle,
     ctas[]{

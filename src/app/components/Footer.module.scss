@@ -9,6 +9,21 @@
   color: #eef0f2;
 }
 
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3.2rem;
+}
+
+.info {
+  flex: 0 0 24rem;
+}
+
+.links {
+  flex: 1 1 100%;
+}
+
 .copyright {
   opacity: 0.6;
 }

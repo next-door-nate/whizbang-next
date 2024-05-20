@@ -24,8 +24,10 @@ export default function Footer({ footer }: FooterProps) {
     <footer className={styles.footer} data-noise="true">
       <Container type="normal">
         <div className={styles.wrap}>
-          <Link href="/">
-            <span className={styles.logo}>Whizbang!</span>
+          <div className={styles.info}>
+            <Link href="/">
+              <span className={styles.logo}>Whizbang!</span>
+            </Link>
 
             {footer.social && (
               <div className={styles.social}>
@@ -46,7 +48,7 @@ export default function Footer({ footer }: FooterProps) {
                 </nav>
               </div>
             )}
-          </Link>
+          </div>
 
           {footer.nav && (
             <nav className={styles.links}>
