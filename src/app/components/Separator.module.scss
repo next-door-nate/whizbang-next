@@ -1,0 +1,11 @@
+.separator {
+  padding: 4rem 0;
+}
+
+.line {
+  display: block;
+  height: 0.1rem;
+  width: 100%;
+  background-color: #bfc7db;
+  mask-image: linear-gradient(90deg, #00000000 0%, #000000ff 15%, #000000ff 85%, #00000000 100%);
+}

@@ -1,6 +1,7 @@
 import BannerHome from "./BannerHome";
 import BannerPage from "./BannerPage";
 import FaqBlock from "./FaqBlock";
+import Separator from "./Separator";
 
 export default function Blocks({ blocks }) {
   return (
@@ -14,6 +15,8 @@ export default function Blocks({ blocks }) {
               return <BannerPage banner={block} key={block._key} />;
             case "faq_block":
               return <FaqBlock block={block} key={block._key} />;
+            case "separator":
+              return <Separator separator={block} key={block._key} />;
           }
 
           return <p key={`noblockfound-` + i}>{block._type}</p>;

@@ -101,6 +101,11 @@ export const blocksQuery = `
       answer,
     },
   },
+
+  _type == "separator" => {
+    theme,
+    style,
+  }
 `;
 
 export const pageQuery = `

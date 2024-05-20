@@ -13,6 +13,7 @@ import footer from "./schemas/footer";
 import theme from "./schemas/theme";
 import globalConfig from "./schemas/globalConfig";
 import faqBlock from "./schemas/faqBlock";
+import separator from "./schemas/separator";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -29,6 +30,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     bannerHome,
     bannerPage,
     faqBlock,
+    separator,
 
     //utilities
     meta,
