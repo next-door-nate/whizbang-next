@@ -87,3 +87,18 @@ blockquote {
     font-size: 2rem; /* 20px */
   }
 }
+
+.eyebrow {
+  padding: 0.4rem 1.2rem;
+  background: #f6f9ff;
+  color: #171d27;
+  border-radius: 5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  display: inline-block;
+
+  @media screen and (max-width: 767px) {
+    font-size: 1.2rem;
+  }
+}

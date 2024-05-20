@@ -9,6 +9,7 @@ export default function BannerHome({ banner }) {
     <section data-block={banner._type} className={styles.banner}>
       <Container type="normal">
         <div className={styles.content}>
+          {banner.eyebrow && <span className="eyebrow">{banner.eyebrow}</span>}
           {banner.title && <h1>{banner.title}</h1>}
           {banner.subtitle && (
             <div className={styles.subtitle}>

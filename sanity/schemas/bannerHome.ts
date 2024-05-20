@@ -7,6 +7,11 @@ export default defineType({
   fields: [
     defineField({
       type: "string",
+      name: "eyebrow",
+      title: "Eyebrow",
+    }),
+    defineField({
+      type: "string",
       name: "title",
       title: "Title",
     }),
@@ -24,7 +29,7 @@ export default defineType({
     defineField({
       type: "image",
       name: "image",
-      title: "Image",
+      title: "Background Image",
       fields: [
         {
           type: "string",
