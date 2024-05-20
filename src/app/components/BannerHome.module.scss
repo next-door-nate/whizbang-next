@@ -1,8 +1,33 @@
 .banner {
-  padding: 10rem 0;
+  padding: 8rem 0;
   background: #d2d8e7;
   width: 100%;
   min-height: 48rem;
+  height: 60vh;
   display: grid;
   align-items: center;
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+.content {
+  width: 50%;
+  max-width: 72rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.subtitle {
+  max-width: 52rem;
+}
+
+.ctas {
+  display: flex;
+  width: 100%;
+  gap: 3.2rem;
+  margin-top: 4rem;
 }

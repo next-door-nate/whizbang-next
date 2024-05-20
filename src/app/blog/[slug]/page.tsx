@@ -29,8 +29,6 @@ export default async function Home({ params }: { params: { slug: string } }) {
       }
     }`);
 
-  console.log(post, slug);
-
   return (
     <main className="flex min-h-screen flex-col items-start justify-start p-24">
       <h1 className="text-l">{post.title}</h1>

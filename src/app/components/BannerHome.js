@@ -1,17 +1,37 @@
 import RichTextRenderer from "./RichTextRenderer";
 import styles from "./BannerHome.module.scss";
 import Container from "./Container";
+import Link from "next/link";
+import linkResolver from "../utils/linkResolver";
 
 export default function BannerHome({ banner }) {
   return (
     <section data-block={banner._type} className={styles.banner}>
       <Container type="normal">
-        {banner.title && <h1>{banner.title}</h1>}
-        {banner.subtitle && <RichTextRenderer blocks={banner.subtitle} />}
-        {banner.ctas.length > 0 &&
-          banner.ctas.map((cta) => {
-            return <div key={cta._key}>{cta.text}</div>;
-          })}
+        <div className={styles.content}>
+          {banner.title && <h1>{banner.title}</h1>}
+          {banner.subtitle && (
+            <div className={styles.subtitle}>
+              <RichTextRenderer blocks={banner.subtitle} />
+            </div>
+          )}
+          {banner.ctas.length > 0 && (
+            <nav className={styles.ctas}>
+              {banner.ctas.map((cta, i) => {
+                return (
+                  <Link
+                    key={cta._key}
+                    href={cta.external_link ? cta.external_link : linkResolver(cta.link)}
+                    className="button"
+                    data-button={i == 0 ? "primary" : "text"}
+                  >
+                    {cta.text}
+                  </Link>
+                );
+              })}
+            </nav>
+          )}
+        </div>
       </Container>
     </section>
   );

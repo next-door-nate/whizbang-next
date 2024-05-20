@@ -74,6 +74,7 @@ export const blocksQuery = `
     title,
     subtitle,
     faqs[]{
+      _key,
       question,
       answer,
     },

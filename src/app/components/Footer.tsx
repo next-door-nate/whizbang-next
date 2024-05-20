@@ -23,9 +23,30 @@ export default function Footer({ footer }: FooterProps) {
   return (
     <footer className={styles.footer} data-noise="true">
       <Container type="normal">
-        <Link href="/">
-          <span className={styles.logo}>Whizbang!</span>
-        </Link>
+        <div className={styles.wrap}>
+          <Link href="/">
+            <span className={styles.logo}>Whizbang!</span>
+          </Link>
+
+          {footer.nav && (
+            <nav className={styles.links}>
+              {footer.nav.map((item) => {
+                return (
+                  <div key={item._key}>
+                    <Link
+                      href={
+                        item.link.external_link ? item.link.external_link : linkResolver(item.link)
+                      }
+                      title={item.link.title}
+                    >
+                      {item.link.title}
+                    </Link>
+                  </div>
+                );
+              })}
+            </nav>
+          )}
+        </div>
       </Container>
       <Container type="normal">
         {footer.copyright && (

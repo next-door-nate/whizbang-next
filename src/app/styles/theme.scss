@@ -1,9 +1,21 @@
 :root {
-  //=============================================
-  // Theme
-  //=============================================
   // Colors
   --background-color: #f4f6f9;
   --heading-color: #171d27;
   --body-text-color: #465167;
+
+  // Buttons
+  --button-primary: #4769e1;
+  --button-primary-text: #f4f6f9;
+  --button-primary-hover: #3254ce;
+  --button-primary-hover-text: #f4f6f9;
+  --button-primary-active: #415394;
+  --button-primary-active-text: #f4f6f9;
+
+  --button-secondary: #d8dfef;
+  --button-secondary-text: #171d27;
+  --button-secondary-hover: #3254ce;
+  --button-secondary-hover-text: #171d27;
+  --button-secondary-active: #415394;
+  --button-secondary-active-text: #171d27;
 }

@@ -25,8 +25,6 @@ export default async function Home({ params }: { params: { slug: string } }) {
       ${pageQuery}
     }`);
 
-  console.log(page, slug);
-
   return (
     <Layout header={globalConfig.header} footer={globalConfig.footer}>
       <h1>{params.slug}</h1>

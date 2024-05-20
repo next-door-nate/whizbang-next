@@ -35,6 +35,7 @@ export default function Header({ header }: HeaderProps) {
                               ? item.link.external_link
                               : linkResolver(item.link)
                           }
+                          title={item.link.title}
                         >
                           {item.link.title}
                         </Link>
@@ -46,7 +47,7 @@ export default function Header({ header }: HeaderProps) {
             </div>
 
             <div className={styles.right}>
-              <button>Contact</button>
+              <button className="button">Contact</button>
             </div>
           </div>
         </Container>
