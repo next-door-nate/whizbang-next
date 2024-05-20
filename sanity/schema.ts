@@ -3,6 +3,7 @@ import page from "./schemas/page";
 import meta from "./schemas/meta";
 import blocks from "./schemas/blocks";
 import bannerHome from "./schemas/bannerHome";
+import bannerPage from "./schemas/bannerPage";
 import richText from "./schemas/richText";
 import cta from "./schemas/cta";
 import post from "./schemas/post";
@@ -26,6 +27,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     //blocks
     blocks,
     bannerHome,
+    bannerPage,
     faqBlock,
 
     //utilities

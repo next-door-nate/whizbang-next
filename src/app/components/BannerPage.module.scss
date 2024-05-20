@@ -1,0 +1,48 @@
+.banner {
+  padding: 8rem 0;
+  background: #d2d8e7;
+  width: 100%;
+  min-height: 32rem;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  p {
+    font-size: 2rem;
+  }
+
+  &[data-center="true"] {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    .subtitle {
+      margin: 0 auto;
+    }
+
+    .content {
+      margin: 0 auto;
+    }
+  }
+}
+
+.content {
+  width: 50%;
+  max-width: 72rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.subtitle {
+  max-width: 52rem;
+}
+
+.ctas {
+  display: flex;
+  width: 100%;
+  gap: 3.2rem;
+  margin-top: 4rem;
+}

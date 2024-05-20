@@ -53,9 +53,9 @@ body:not(.sanity-studio) {
   }
 
   &:active {
-    background-color: blue !important;
+    background-color: var(--button-primary-active);
     color: var(--button-primary-active-text);
-    transform: scale(2) !important;
+    transform: scale(1) !important;
   }
 
   &[data-button="secondary"] {

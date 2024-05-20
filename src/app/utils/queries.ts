@@ -71,6 +71,27 @@ export const blocksQuery = `
     image,
   },
 
+  _type == "banner_page" => {
+    eyebrow,
+    title,
+    subtitle,
+    center,
+    ctas[]{
+      _key,
+      text,
+      link{
+        "_type": @->_type,
+        "slug": @->slug,
+      },
+      external_link,
+      tracking{
+        analytics_id,
+        utm_params,
+      },
+    },
+    image,
+  },
+
   _type == "faq_block" => {
     title,
     subtitle,

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { client } from "../utils/sanity/client";
 import { pageQuery, globalConfigQuery } from "../utils/queries";
 import Layout from "../components/Layout";
+import Blocks from "../components/Blocks";
 
 type Page = {
   _id: string;
@@ -15,6 +16,7 @@ type Page = {
   slug?: {
     current: string;
   };
+  blocks: Array<any>;
 };
 
 export default async function Home({ params }: { params: { slug: string } }) {
@@ -27,8 +29,7 @@ export default async function Home({ params }: { params: { slug: string } }) {
 
   return (
     <Layout header={globalConfig.header} footer={globalConfig.footer}>
-      <h1>{params.slug}</h1>
-      <h3>{page?.meta?.title}</h3>
+      <Blocks blocks={page.blocks} />
     </Layout>
   );
 }
