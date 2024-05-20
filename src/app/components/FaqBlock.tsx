@@ -35,7 +35,7 @@ export default function FaqBlock({ block }: FaqBlockProps) {
                 //   {faq.question && <summary>{faq.question}</summary>}
                 //   {faq.answer && <RichTextRenderer blocks={faq.answer} />}
                 // </details>
-                <details className="group" key={faq._key}>
+                <details className="group" key={faq._key} open={i == 0 ? true : false}>
                   <summary className="flex justify-between items-center cursor-pointer text-lg font-semibold text-gray-800 py-2 hover:text-gray-500 transition duration-300">
                     <span className="text-3xl">{faq.question}</span>
                     <svg
@@ -53,7 +53,11 @@ export default function FaqBlock({ block }: FaqBlockProps) {
                       ></path>
                     </svg>
                   </summary>
-                  {faq.answer && <RichTextRenderer blocks={faq.answer} />}
+                  {faq.answer && (
+                    <div className={styles.answer}>
+                      <RichTextRenderer blocks={faq.answer} />
+                    </div>
+                  )}
                 </details>
               );
             })}
