@@ -48,21 +48,21 @@ export const metaQuery = `
 `;
 
 export const richTextQuery = `
-...,
-asset->{
+  ...,
+  asset->{
     ...,
     "_key": _id
-},
-markDefs[]{
+  },
+  markDefs[]{
     ...,
     _type == "link_main" => {
-        "linkObj": {
-            "_type": link->_type,
-            "slug": link->slug,
-            "external_link": external_link
-        },
+      "linkObj": {
+        "_type": link->_type,
+        "slug": link->slug,
+        "external_link": external_link
+      },
     },
-},
+  },
 `;
 
 export const blocksQuery = `
@@ -116,7 +116,9 @@ export const blocksQuery = `
     faqs[]{
       _key,
       question,
-      answer,
+      answer[]{
+        ${richTextQuery}
+      },
     },
   },
 
@@ -127,7 +129,9 @@ export const blocksQuery = `
 
   _type == "rich_text_block" => {
     center,
-    rich_text,
+    rich_text[]{
+      ${richTextQuery}
+    },
   },
 `;
 

@@ -70,13 +70,14 @@ export default function Footer({ footer }: FooterProps) {
           )}
         </div>
       </Container>
-      <Container type="normal">
-        {footer.copyright && (
+
+      {footer.copyright && (
+        <Container type="normal">
           <p className={styles.copyright}>
             &copy; {year} {footer.copyright}
           </p>
-        )}
-      </Container>
+        </Container>
+      )}
     </footer>
   );
 }

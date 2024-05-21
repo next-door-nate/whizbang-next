@@ -10,4 +10,11 @@
   [data-container] > :last-child {
     margin-bottom: 0;
   }
+
+  a {
+    color: var(--link-color);
+    &:hover {
+      color: var(--link-color-hover);
+    }
+  }
 }

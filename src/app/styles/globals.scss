@@ -21,7 +21,7 @@ html:not(.sanity-studio) {
 }
 
 body:not(.sanity-studio) {
-  color: rgb(var(--foreground-rgb));
+  color: var(--heading-color);
   /* background: rgb(from #0000ff r g b / 0.1); */
   background-color: var(--background-color);
   font-size: 16px;
