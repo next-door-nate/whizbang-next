@@ -3,12 +3,14 @@ import linkResolver from "../utils/linkResolver";
 import Link from "next/link";
 
 import styles from "./Footer.module.scss";
+import RichTextRenderer from "./RichTextRenderer";
 
 type FooterProps = {
   footer: {
     nav: Array<any>;
     social: Array<any>;
     copyright: string;
+    blurb: Array<any>;
   };
 };
 
@@ -28,6 +30,12 @@ export default function Footer({ footer }: FooterProps) {
             <Link href="/">
               <span className={styles.logo}>Whizbang!</span>
             </Link>
+
+            {footer.blurb && (
+              <div className={styles.blurb}>
+                <RichTextRenderer blocks={footer.blurb} />
+              </div>
+            )}
 
             {footer.social && (
               <div className={styles.social}>

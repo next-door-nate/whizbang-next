@@ -17,6 +17,7 @@ export const headerQuery = `
 `;
 
 export const footerQuery = `
+  blurb,
   nav[]{
     _key,
     'link':{
