@@ -23,6 +23,7 @@ export default function BannerHome({ banner }) {
                   <Link
                     key={cta._key}
                     href={cta.external_link ? cta.external_link : linkResolver(cta.link)}
+                    title={cta.text}
                     className="button"
                     data-button={i == 0 ? "primary" : "text"}
                   >
