@@ -27,9 +27,12 @@ export const footerQuery = `
       external_link,
       linklist[]{
         _key,
-        "link": {
-          'title': subLink.title,
-        }
+        title,
+        external_link,
+        "page": {
+          "_type":page->_type,
+          "slug": page->slug,
+        },  
       }
     },
   },

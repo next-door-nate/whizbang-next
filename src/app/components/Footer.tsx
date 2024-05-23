@@ -62,7 +62,7 @@ export default function Footer({ footer }: FooterProps) {
             <nav className={styles.links}>
               {footer.nav.map((item) => {
                 return (
-                  <div key={item._key}>
+                  <div className={styles.column} key={item._key}>
                     <Link
                       href={
                         item.link.external_link ? item.link.external_link : linkResolver(item.link)
@@ -71,6 +71,26 @@ export default function Footer({ footer }: FooterProps) {
                     >
                       {item.link.title}
                     </Link>
+
+                    {item.link.linklist?.length > 0 && (
+                      <nav className={styles.sublinks}>
+                        {item.link.linklist.map((sublink: any) => {
+                          return (
+                            <Link
+                              key={sublink._key}
+                              href={
+                                sublink.external_link
+                                  ? sublink.external_link
+                                  : linkResolver(sublink.page)
+                              }
+                              title={sublink.title}
+                            >
+                              {sublink.title}
+                            </Link>
+                          );
+                        })}
+                      </nav>
+                    )}
                   </div>
                 );
               })}
