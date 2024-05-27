@@ -1,3 +1,9 @@
+  export const metaQuery = `
+  title,
+  description,
+  "image": image.asset->url,
+`;
+
 export const headerQuery = `
   nav[]{
     _key,
@@ -43,12 +49,6 @@ export const footerQuery = `
     'icon': icon.asset->url,
   },
   copyright,
-`;
-
-export const metaQuery = `
-  title,
-  description,
-  image,
 `;
 
 export const richTextQuery = `
