@@ -1,3 +1,9 @@
+export const metaQuery = `
+  title,
+  description,
+  image,
+`;
+
 export const headerQuery = `
   nav[]{
     _key,
@@ -14,6 +20,9 @@ export const headerQuery = `
       }
     },
   },
+  "meta": *[_type == "globalConfig"][0].meta{
+    ${metaQuery}
+  }
 `;
 
 export const footerQuery = `
@@ -43,12 +52,6 @@ export const footerQuery = `
     'icon': icon.asset->url,
   },
   copyright,
-`;
-
-export const metaQuery = `
-  title,
-  description,
-  image,
 `;
 
 export const richTextQuery = `

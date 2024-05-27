@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Blocks from "./components/Blocks";
-
 import { client } from "./utils/sanity/client";
-import { blocksQuery, globalConfigQuery, pageQuery } from "./utils/queries";
+import { globalConfigQuery, pageQuery } from "./utils/queries";
 import Layout from "./components/Layout";
+import Blocks from "./components/Blocks";
+import type { Metadata } from "next";
 
 type Page = {
   _id: string;
@@ -18,6 +17,25 @@ type Page = {
   };
   blocks?: any;
 };
+
+export async function generateMetadata() {
+  let home = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
+    "meta": {
+      title,
+      description,
+      image,
+    }
+  }`);
+
+  return {
+    title: home.meta?.title,
+    description: home.meta?.description,
+    openGraph: {
+      title: home.meta?.title,
+      description: home.meta?.description,
+    },
+  };
+}
 
 export default async function Home() {
   let home = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
