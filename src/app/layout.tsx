@@ -18,23 +18,8 @@ export async function generateMetadata() {
   }`);
 
   return {
-    title: meta?.title,
-    description: meta?.description,
     icons: {
       icon: "/favicon.png",
-    },
-    openGraph: {
-      title: meta?.title,
-      description: meta?.description,
-      images: [
-        {
-          url: "/og-image.png",
-          width: "1200",
-          height: "630",
-        },
-      ],
-      url: "https://nextjs.org",
-      siteName: "Next.js",
     },
   };
 }

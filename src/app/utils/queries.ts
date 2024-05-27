@@ -1,7 +1,7 @@
-export const metaQuery = `
+  export const metaQuery = `
   title,
   description,
-  image,
+  "image": image.asset->url,
 `;
 
 export const headerQuery = `
@@ -20,9 +20,6 @@ export const headerQuery = `
       }
     },
   },
-  "meta": *[_type == "globalConfig"][0].meta{
-    ${metaQuery}
-  }
 `;
 
 export const footerQuery = `

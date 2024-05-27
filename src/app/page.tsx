@@ -1,8 +1,8 @@
 import { client } from "./utils/sanity/client";
-import { globalConfigQuery, pageQuery } from "./utils/queries";
+import { globalConfigQuery, metaQuery, pageQuery } from "./utils/queries";
 import Layout from "./components/Layout";
 import Blocks from "./components/Blocks";
-import type { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 
 type Page = {
   _id: string;
@@ -19,22 +19,36 @@ type Page = {
 };
 
 export async function generateMetadata() {
-  let home = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
-    "meta": {
-      title,
-      description,
-      image,
+
+  let defaultMeta = await client.fetch(`*[_type == "globalConfig"][0]{
+    meta{
+      ${metaQuery}
+    }
+  }`);
+
+  let page = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
+    "meta": meta{
+      ${metaQuery}
     }
   }`);
 
   return {
-    title: home.meta?.title,
-    description: home.meta?.description,
+    title: page?.meta?.title ? page.meta.title : defaultMeta.meta.title,
+    description: page?.meta?.description ? page.meta.description : defaultMeta.meta.description,
     openGraph: {
-      title: home.meta?.title,
-      description: home.meta?.description,
+      title: page?.meta?.title ? page.meta.title : defaultMeta.meta.title,
+      description: page?.meta?.description ? page.meta.description : defaultMeta.meta.description,
+      images: [
+        {
+          url: page.meta?.image ? `${page.meta.image}?w=1200` : `${defaultMeta.meta.image}?w=1200`,
+          width: "1200",
+          height: "630",
+        },
+      ],
+      url: "https://whizbang.pages.dev",
+      siteName: "Whizbang!",
     },
-  };
+  }
 }
 
 export default async function Home() {
