@@ -5,8 +5,8 @@ import Link from "next/link";
 
 type DropDownProps = {
   dropdown: {
-    title: string;
     link: {
+      title: string;
       _type: string;
       linklist: Array<any>;
       slug: {
