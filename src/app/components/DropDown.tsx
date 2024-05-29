@@ -55,6 +55,7 @@ export default function DropDownMenu({ dropdown }: DropDownProps) {
           <path d="M1 1L4 4L7 1" stroke="black" />
         </svg>
       </button>
+
       <nav className={styles.dropdown} data-show={showMenu}>
         {dropdown.link.linklist.map((sublink: any) => {
           return (
