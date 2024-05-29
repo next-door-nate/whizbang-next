@@ -3,6 +3,8 @@
   padding: 1.6rem 0;
 
   --gap: 3.2rem;
+  position: relative;
+  z-index: 10;
 }
 
 .wrap {
@@ -19,8 +21,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: var(--gap);
+  gap: calc(var(--gap) * 1.5);
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  nav:not([data-show]) {
+    display: flex;
+    gap: var(--gap);
+  }
 }
 
 .right {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: calc(var(--gap) / 2);
 }
