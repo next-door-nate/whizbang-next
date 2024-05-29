@@ -28,11 +28,12 @@
   position: absolute;
   background: var(--background-color);
   border-radius: 0.8rem;
-  transform: translate3d(-1.6rem, -0.8rem, 0);
+  transform: translate3d(-1.6rem, 0.8rem, 0);
   transition:
     display 0.3s ease-in-out allow-discrete,
     opacity 0.3s ease-in-out allow-discrete,
-    transform 0.3s ease-in-out allow-discrete;
+    transform 0.3s ease-in-out allow-discrete,
+    filter 0.3s ease-in-out allow-discrete;
   opacity: 0;
   font-size: 1.4rem;
   color: rgba(0, 0, 0, 0.75);
@@ -40,16 +41,19 @@
   display: none;
   flex-direction: column;
   min-width: 16rem;
+  filter: blur(1rem);
 
   &[data-show="true"] {
     display: flex;
     transform: translate3d(-1.6rem, 0, 0);
     opacity: 1;
     pointer-events: initial;
+    filter: blur(0rem);
 
     @starting-style {
-      transform: translate3d(-1.6rem, -0.8rem, 0);
+      transform: translate3d(-1.6rem, 0.8rem, 0);
       opacity: 0;
+      filter: blur(1rem);
     }
   }
 

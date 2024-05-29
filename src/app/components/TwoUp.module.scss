@@ -1,0 +1,70 @@
+.block {
+  padding: 8rem 0;
+}
+
+.two-up {
+  display: flex;
+  background-color: white;
+  border-radius: 1.6rem;
+  overflow: clip;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.content {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: 1 0 50%;
+
+  @media screen and (max-width: 767px) {
+    flex: 1 0 100%;
+  }
+}
+
+.image {
+  flex: 1 0 50%;
+  display: block;
+  //   position: relative;
+
+  @media screen and (max-width: 767px) {
+    flex: 1 0 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+  }
+}
+
+.link {
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2rem;
+
+    span {
+      transition: transform 0.3s ease-in-out;
+    }
+    &:hover {
+      span {
+        transform: translateX(0.6rem);
+      }
+    }
+  }
+}
+
+.ctas {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
