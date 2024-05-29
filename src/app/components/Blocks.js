@@ -3,6 +3,7 @@ import BannerPage from "./BannerPage";
 import FaqBlock from "./FaqBlock";
 import RichTextBlock from "./RichTextBlock";
 import Separator from "./Separator";
+import TwoUp from "./TwoUp";
 
 export default function Blocks({ blocks }) {
   return (
@@ -20,6 +21,8 @@ export default function Blocks({ blocks }) {
               return <Separator separator={block} key={block._key} />;
             case "rich_text_block":
               return <RichTextBlock block={block} key={block._key} />;
+            case "two_up":
+              return <TwoUp block={block} key={block._key} />;
           }
 
           return <p key={`noblockfound-` + i}>{block._type}</p>;

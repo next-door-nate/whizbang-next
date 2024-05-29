@@ -15,6 +15,7 @@ import globalConfig from "./schemas/globalConfig";
 import faqBlock from "./schemas/faqBlock";
 import separator from "./schemas/separator";
 import richTextBlock from "./schemas/richTextBlock";
+import twoUp from "./schemas/twoUp";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -33,6 +34,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     faqBlock,
     separator,
     richTextBlock,
+    twoUp,
 
     //utilities
     meta,

@@ -1,4 +1,4 @@
-  export const metaQuery = `
+export const metaQuery = `
   title,
   description,
   "image": image.asset->url,
@@ -149,6 +149,29 @@ export const blocksQuery = `
       ${richTextQuery}
     },
   },
+
+  _type == "two_up" => {
+    eyebrow,
+    title,
+    subtitle[]{
+      ${richTextQuery}
+    },
+    ctas[]{
+      _key,
+      text,
+      "link": link->{
+        _type,
+        slug,
+      },
+      external_link,
+    },
+    "image": {
+      "url": image.asset->url,
+      "alt": image.alt,
+      "blurHash": image.asset->metadata.blurHash,
+    },
+    reverse_layout,
+  }
 `;
 
 export const pageQuery = `
