@@ -25,77 +25,9 @@
   font-size: 1.4rem;
   font-weight: 500;
 
-  nav:not(.dropdown) {
+  nav:not([data-show]) {
     display: flex;
     gap: var(--gap);
-  }
-}
-
-.item {
-  a,
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.2rem;
-    position: relative;
-
-    svg {
-      opacity: 0.5;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    &:hover {
-      svg {
-        opacity: 1;
-      }
-    }
-  }
-  button {
-    padding-bottom: 0.8rem;
-  }
-}
-
-.dropdown {
-  padding: 0.8rem;
-  position: absolute;
-  background: var(--background-color);
-  border-radius: 0.8rem;
-  transform: translate3d(-1.6rem, -0.8rem, 0);
-  transition:
-    display 0.3s ease-in-out allow-discrete,
-    opacity 0.3s ease-in-out allow-discrete,
-    transform 0.3s ease-in-out allow-discrete;
-  opacity: 0;
-  font-size: 1.4rem;
-  color: rgba(0, 0, 0, 0.75);
-  pointer-events: none;
-  display: none;
-
-  &[data-show="true"] {
-    display: block;
-    transform: translate3d(-1.6rem, 0, 0);
-    opacity: 1;
-    pointer-events: initial;
-
-    @starting-style {
-      transform: translate3d(-1.6rem, -0.8rem, 0);
-      opacity: 0;
-    }
-  }
-
-  div {
-    a {
-      padding: 0.8rem;
-      border-radius: 0.6rem;
-
-      &:hover {
-        background-color: rgb(
-          from var(--background-color) calc(r * 0.33) calc(g * 0.33) calc(b * 1) /
-            0.08
-        );
-      }
-    }
   }
 }
 

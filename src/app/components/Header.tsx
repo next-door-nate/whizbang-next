@@ -6,6 +6,7 @@ import Container from "./Container";
 import styles from "./Header.module.scss";
 import linkResolver from "../utils/linkResolver";
 import { useState } from "react";
+import DropDownMenu from "./DropDown";
 
 type HeaderProps = {
   header: {
@@ -18,17 +19,13 @@ type HeaderProps = {
 export default function Header({ header }: HeaderProps) {
   const [showMenu, setShowMenu] = useState(false);
 
-  function toggleMenu() {
-    console.log("woooo");
-  }
-
   return (
     <>
       <header className={styles.header} data-element="header">
         <Container type="normal">
           <div className={styles.wrap}>
             <div className={styles.left}>
-              <Link href="/">
+              <Link href="/" title="Home">
                 <span className={styles.logo}>
                   <span>Whizbang!</span>
                 </span>
@@ -37,74 +34,9 @@ export default function Header({ header }: HeaderProps) {
                 <nav>
                   {header.nav.map((item: any, i: number) => {
                     return (
-                      <div
-                        key={item._key}
-                        className={styles.item}
-                        onMouseEnter={
-                          item.link.linklist?.length > 0
-                            ? () => {
-                                setShowMenu(!showMenu);
-                              }
-                            : undefined
-                        }
-                        onMouseLeave={
-                          item.link.linklist?.length > 0
-                            ? () => {
-                                setShowMenu(!showMenu);
-                              }
-                            : undefined
-                        }
-                        onClick={
-                          item.link.linklist?.length > 0
-                            ? () => {
-                                setShowMenu(!showMenu);
-                              }
-                            : undefined
-                        }
-                      >
+                      <div key={item._key}>
                         {item.link.linklist?.length > 0 ? (
-                          <>
-                            <button title={item.link.title}>
-                              {item.link.title}
-                              <svg
-                                width="8"
-                                height="5"
-                                viewBox="0 0 8 5"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M1 1L4 4L7 1" stroke="black" />
-                              </svg>
-                            </button>
-                            <nav
-                              className={styles.dropdown}
-                              data-show={showMenu}
-                              onBlur={
-                                item.link.linklist?.length > 0
-                                  ? () => {
-                                      setShowMenu(!showMenu);
-                                    }
-                                  : undefined
-                              }
-                            >
-                              {item.link.linklist.map((sublink: any) => {
-                                return (
-                                  <div key={sublink._key}>
-                                    <Link
-                                      href={
-                                        sublink.external_link
-                                          ? sublink.external_link
-                                          : linkResolver(sublink.link)
-                                      }
-                                      title={sublink.title}
-                                    >
-                                      {sublink.title}
-                                    </Link>
-                                  </div>
-                                );
-                              })}
-                            </nav>
-                          </>
+                          <DropDownMenu dropdown={item} key={item._key} />
                         ) : (
                           <Link
                             href={
