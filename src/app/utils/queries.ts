@@ -14,12 +14,24 @@ export const headerQuery = `
       external_link,
       linklist[]{
         _key,
-        "link": {
-          'title': subLink.title,
-        }
+        title,
+        "link": link->{
+          _type,
+          slug,
+        },
+        external_link,
       }
     },
   },
+  ctas[]{
+    _key,
+    text,
+    "link": link->{
+      _type,
+      slug
+    },
+    external_link,
+  }
 `;
 
 export const footerQuery = `

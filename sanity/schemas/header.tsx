@@ -15,5 +15,11 @@ export default {
       title: "Navigation",
       of: [{ type: "nav_item" }],
     },
+    {
+      type: "array",
+      name: "ctas",
+      title: "CTAs",
+      of: [{type: 'cta'}]
+    }
   ],
 };

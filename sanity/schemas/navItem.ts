@@ -14,7 +14,7 @@ export default {
       name: "page",
       title: "Link",
       type: "reference",
-      to: [{ type: "page" }],
+      to: allDocumentTypes,
     },
     {
       name: "external_link",
@@ -39,7 +39,7 @@ export default {
               type: "string",
             },
             {
-              name: "page",
+              name: "link",
               title: "Link",
               type: "reference",
               to: allDocumentTypes,

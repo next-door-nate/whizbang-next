@@ -1,8 +1,11 @@
+"use client"
+
 import Link from "next/link";
 import Container from "./Container";
 
 import styles from "./Header.module.scss";
 import linkResolver from "../utils/linkResolver";
+import { useState } from "react";
 
 type HeaderProps = {
   header: {
@@ -13,6 +16,13 @@ type HeaderProps = {
 };
 
 export default function Header({ header }: HeaderProps) {
+  const [showMenu, setShowMenu] = useState(false);
+
+
+  function toggleMenu(){
+    console.log('woooo')
+  }
+
   return (
     <>
       <header className={styles.header} data-element="header">
@@ -26,9 +36,29 @@ export default function Header({ header }: HeaderProps) {
               </Link>
               {header.nav && (
                 <nav>
-                  {header.nav.map((item: any) => {
+                  {header.nav.map((item: any, i: number) => {
                     return (
-                      <div key={item._key}>
+                      <div key={item._key} className={styles.item} onMouseEnter={item.link.linklist?.length > 0 ? () => {setShowMenu(!showMenu)}: null} onMouseLeave={item.link.linklist?.length > 0 ? () => {setShowMenu(!showMenu)}: null} onClick={item.link.linklist?.length > 0 ? () => {setShowMenu(!showMenu)}: null}>
+                        {item.link.linklist?.length > 0 ? (
+                          <>
+                          <button title={item.link.title}>
+                            {item.link.title}
+                            <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 1L4 4L7 1" stroke="black"/>
+                            </svg>
+                          </button>
+                          <nav className={styles.dropdown} data-show={showMenu}>
+                            {item.link.linklist.map((sublink: any) => {
+                              return (
+                                <div key={sublink._key}>
+                                  <Link href={sublink.external_link ? sublink.external_link : linkResolver(sublink.link)} title={sublink.title}>{sublink.title}</Link>
+                                  </div>
+                              )
+                            })}
+                          </nav>
+                          </>
+                        )
+                        :
                         <Link
                           href={
                             item.link.external_link
@@ -39,6 +69,7 @@ export default function Header({ header }: HeaderProps) {
                         >
                           {item.link.title}
                         </Link>
+                      }
                       </div>
                     );
                   })}
@@ -46,9 +77,15 @@ export default function Header({ header }: HeaderProps) {
               )}
             </div>
 
-            <div className={styles.right}>
-              <button className="button">Contact</button>
-            </div>
+            {header.ctas.length > 0 && 
+            <nav className={styles.right}>
+              {header.ctas.map((item, i) => {
+                return(
+                  <Link key={item._key} href={item.external_link ? item.external_link : linkResolver(item.link)} className="button" data-button={i == 0 ? "primary" : "text"} title={item.text}>{item.text}</Link>
+                )
+              })}
+            </nav>
+            }
           </div>
         </Container>
       </header>
