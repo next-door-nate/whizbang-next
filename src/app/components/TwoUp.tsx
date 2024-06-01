@@ -18,7 +18,6 @@ type TwoUpProps = {
 };
 
 export default function TwoUp({ block }: TwoUpProps) {
-  console.log(block);
   return (
     <section className={styles.block} data-block="two_up">
       <Container type="normal">
