@@ -13,6 +13,7 @@ import {
   FaWhatsapp,
   FaTelegram,
   FaSnapchat,
+  FaDiscord,
 } from "react-icons/fa6";
 
 interface SocialIconProps {
@@ -46,6 +47,8 @@ export default function SocialIcon({ url }: SocialIconProps) {
     return <FaInstagram />;
   } else if (url.includes("snapchat")) {
     return <FaSnapchat />;
+  } else if (url.includes("dicord")) {
+    return <FaDiscord />;
   } else {
     return <FaLink />;
   }
