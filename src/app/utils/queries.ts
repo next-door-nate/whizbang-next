@@ -164,6 +164,7 @@ export const blocksQuery = `
         slug,
       },
       external_link,
+      reverse_layout,
     },
     "image": {
       "url": image.asset->url,
