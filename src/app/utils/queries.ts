@@ -47,9 +47,9 @@ export const footerQuery = `
         _key,
         title,
         external_link,
-        "page": {
-          "_type":page->_type,
-          "slug": page->slug,
+        "link": {
+          "_type": link->_type,
+          "slug": link->slug,
         },  
       }
     },
@@ -164,6 +164,7 @@ export const blocksQuery = `
         slug,
       },
       external_link,
+      reverse_layout,
     },
     "image": {
       "url": image.asset->url,

@@ -18,6 +18,7 @@
   @media screen and (max-width: 767px) {
     flex-direction: column;
     justify-content: flex-start;
+    gap: 4.8rem;
   }
 }
 
@@ -27,8 +28,26 @@
 }
 
 .blurb {
-  font-size: 1.8rem;
-  margin-top: 2.4rem;
+  margin: 2.4rem 0 4rem;
+
+  p {
+    font-size: 1.8rem;
+  }
+}
+
+.social nav {
+  display: flex;
+  gap: 1.6rem;
+  a {
+    &:hover {
+      opacity: 0.75;
+    }
+
+    svg {
+      width: 2.4rem;
+      height: auto;
+    }
+  }
 }
 
 .info {
@@ -46,6 +65,10 @@
   justify-content: flex-end;
   grid-template-columns: repeat(auto-fill, 25%);
 
+  @media screen and (max-width: 1140px) {
+    grid-template-columns: repeat(auto-fill, 45%);
+  }
+
   @media screen and (max-width: 767px) {
     grid-template-columns: repeat(auto-fill, 100%);
   }
@@ -57,9 +80,11 @@
   flex-direction: column;
   gap: 0.6rem;
   width: 100%;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .copyright {
-  opacity: 0.6;
+  opacity: 0.75;
+  font-size: 1.4rem;
+  margin-top: 4.8rem;
 }

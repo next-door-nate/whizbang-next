@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import styles from "./Footer.module.scss";
 import RichTextRenderer from "./RichTextRenderer";
+import SocialIcon from "./SocialIcon";
 
 type FooterProps = {
   footer: {
@@ -27,7 +28,7 @@ export default function Footer({ footer }: FooterProps) {
       <Container type="normal">
         <div className={styles.wrap}>
           <div className={styles.info}>
-            <Link href="/">
+            <Link href="/" title={`Home`}>
               <span className={styles.logo}>Whizbang!</span>
             </Link>
 
@@ -42,15 +43,14 @@ export default function Footer({ footer }: FooterProps) {
                 <nav>
                   {footer.social.map((platform) => {
                     return (
-                      <div key={platform._key}>
-                        <Link
-                          href={platform.link}
-                          title={`Follow me on ` + platform.name}
-                          target="_blank"
-                        >
-                          {platform.name}
-                        </Link>
-                      </div>
+                      <Link
+                        href={platform.link}
+                        title={platform.name}
+                        target="_blank"
+                        key={platform._key}
+                      >
+                        <SocialIcon url={platform.link} />
+                      </Link>
                     );
                   })}
                 </nav>
@@ -65,7 +65,9 @@ export default function Footer({ footer }: FooterProps) {
                   <div className={styles.column} key={item._key}>
                     <Link
                       href={
-                        item.link.external_link ? item.link.external_link : linkResolver(item.link)
+                        item.link.external_link
+                          ? item.link.external_link
+                          : linkResolver(item.link)
                       }
                       title={item.link.title}
                     >
@@ -81,7 +83,7 @@ export default function Footer({ footer }: FooterProps) {
                               href={
                                 sublink.external_link
                                   ? sublink.external_link
-                                  : linkResolver(sublink.page)
+                                  : linkResolver(sublink.link)
                               }
                               title={sublink.title}
                             >

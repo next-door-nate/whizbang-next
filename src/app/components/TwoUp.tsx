@@ -14,15 +14,15 @@ type TwoUpProps = {
     ctas: Array<any>;
     image: any;
     blurhash: string;
+    reverse_layout: boolean;
   };
 };
 
 export default function TwoUp({ block }: TwoUpProps) {
-  console.log(block);
   return (
     <section className={styles.block} data-block="two_up">
       <Container type="normal">
-        <div className={styles["two-up"]}>
+        <div className={styles["two-up"]} data-reverse={block.reverse_layout}>
           <div className={styles.content}>
             {block.eyebrow && <span className="eyebrow">{block.eyebrow}</span>}
             <h2>{block.title}</h2>

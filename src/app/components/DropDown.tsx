@@ -18,6 +18,8 @@ type DropDownProps = {
 
 export default function DropDownMenu({ dropdown }: DropDownProps) {
   const [showMenu, setShowMenu] = useState(false);
+
+  console.log(dropdown);
   return (
     <div
       className={styles.item}
@@ -36,6 +38,13 @@ export default function DropDownMenu({ dropdown }: DropDownProps) {
           : undefined
       }
       onClick={
+        dropdown.link.linklist?.length > 0
+          ? () => {
+              setShowMenu(!showMenu);
+            }
+          : undefined
+      }
+      onBlur={
         dropdown.link.linklist?.length > 0
           ? () => {
               setShowMenu(!showMenu);
