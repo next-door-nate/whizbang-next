@@ -16,6 +16,8 @@ import faqBlock from "./schemas/faqBlock";
 import separator from "./schemas/separator";
 import richTextBlock from "./schemas/richTextBlock";
 import twoUp from "./schemas/twoUp";
+import logoGrid from "./schemas/logoGrid";
+import lede from "./schemas/lede";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -35,11 +37,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     separator,
     richTextBlock,
     twoUp,
+    logoGrid,
 
     //utilities
     meta,
     richText,
     cta,
     navItem,
+    lede,
   ],
 };

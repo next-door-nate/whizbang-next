@@ -5,6 +5,7 @@ export const allBlockTypes = [
   { type: "separator" },
   { type: "rich_text_block" },
   { type: "two_up" },
+  { type: "logo_grid" },
 ];
 
 export const allDocumentTypes = [{ type: "page" }, { type: "post" }];
