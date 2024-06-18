@@ -7,10 +7,28 @@
 }
 
 .logos {
+  --gap: 6.4rem;
   display: flex;
-  gap: 6.4rem;
+  gap: var(--gap);
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 767px) {
+    --gap: 3.2rem;
+    gap: calc(2 * var(--gap)) var(--gap);
+    flex-wrap: wrap;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+
+  @media screen and (max-width: 767px) {
+    flex: 1 1 calc(50% - var(--gap));
+  }
 }
 
 .lede {
