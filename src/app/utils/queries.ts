@@ -172,6 +172,22 @@ export const blocksQuery = `
       "blurHash": image.asset->metadata.blurHash,
     },
     reverse_layout,
+  },
+
+  _type == "logo_grid" => {
+    lede{
+      title,
+      eyebrow,
+      subtitle,
+    },
+    logos[]{
+      name,
+      "image": {
+        "url": image.asset->url,
+        "alt": image.alt,
+        "blurHash": image.asset->metadata.blurHash,
+      },
+    }
   }
 `;
 

@@ -1,0 +1,21 @@
+.block {
+  padding: 8rem 0;
+
+  :global .eyebrow {
+    background-color: white;
+  }
+}
+
+.logos {
+  display: flex;
+  gap: 6.4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.lede {
+  text-align: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  margin-bottom: 6.4rem;
+}
