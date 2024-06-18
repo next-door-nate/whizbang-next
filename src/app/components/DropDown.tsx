@@ -19,7 +19,6 @@ type DropDownProps = {
 export default function DropDownMenu({ dropdown }: DropDownProps) {
   const [showMenu, setShowMenu] = useState(false);
 
-  console.log(dropdown);
   return (
     <div
       className={styles.item}
@@ -54,13 +53,7 @@ export default function DropDownMenu({ dropdown }: DropDownProps) {
     >
       <button title={dropdown.link.title} data-drop-active="">
         {dropdown.link.title}
-        <svg
-          width="8"
-          height="5"
-          viewBox="0 0 8 5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 1L4 4L7 1" stroke="black" />
         </svg>
       </button>
@@ -70,11 +63,7 @@ export default function DropDownMenu({ dropdown }: DropDownProps) {
           return (
             <div key={sublink._key}>
               <Link
-                href={
-                  sublink.external_link
-                    ? sublink.external_link
-                    : linkResolver(sublink.link)
-                }
+                href={sublink.external_link ? sublink.external_link : linkResolver(sublink.link)}
                 title={sublink.title}
               >
                 {sublink.title}
