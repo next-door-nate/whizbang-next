@@ -181,6 +181,7 @@ export const blocksQuery = `
       subtitle,
     },
     logos[]{
+      _key,
       name,
       "image": {
         "url": image.asset->url,

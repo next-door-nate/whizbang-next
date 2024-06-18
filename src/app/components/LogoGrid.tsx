@@ -21,7 +21,7 @@ export default function LogoGrid({ block }: LogoGridProps) {
           <div className={styles.logos}>
             {block.logos.map((company: any, i: number) => {
               return (
-                <div className={styles.logo}>
+                <div key={company._key} className={styles.logo}>
                   <img src={company.image.url} alt={company.image.alt} />
                 </div>
               );
