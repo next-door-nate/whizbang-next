@@ -27,6 +27,16 @@ export default defineType({
       of: [{ type: "cta" }],
     }),
     defineField({
+      type: "boolean",
+      name: "center",
+      title: "Center content?",
+    }),
+    defineField({
+      type: "boolean",
+      name: "show_dots",
+      title: "Show Dots",
+    }),
+    defineField({
       type: "image",
       name: "image",
       title: "Background Image",

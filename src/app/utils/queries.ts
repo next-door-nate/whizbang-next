@@ -102,7 +102,12 @@ export const blocksQuery = `
         utm_params,
       },
     },
-    image,
+    "image": {
+      "url": image.asset->url,
+      "alt": image.alt,
+    },
+    center,
+    show_dots,
   },
 
   _type == "banner_page" => {
@@ -187,6 +192,8 @@ export const blocksQuery = `
         "url": image.asset->url,
         "alt": image.alt,
         "blurHash": image.asset->metadata.blurHash,
+        "width": image.asset->metadata.dimensions.width,
+        "height": image.asset->metadata.dimensions.height, 
       },
     }
   }

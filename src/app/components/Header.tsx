@@ -77,9 +77,61 @@ export default function Header({ header }: HeaderProps) {
                 })}
               </nav>
             )}
+            <button
+              onClick={() => {
+                setShowMenu(!showMenu);
+              }}
+              title="Toggle mobile menu"
+              className={styles.hamburger}
+              data-active={showMenu}
+            >
+              <div className={styles.patty} data-patty="top"></div>
+              <div className={styles.patty} data-patty="middle"></div>
+              <div className={styles.patty} data-patty="bottom"></div>
+            </button>
           </div>
         </Container>
       </header>
+
+      <div className={styles.menu} data-show-menu={showMenu}>
+        <nav className={styles.mobile}>
+          <Link href="/" title="Home">
+            <span className={styles.logo}>
+              <span>Whizbang!</span>
+            </span>
+          </Link>
+          {header.nav && (
+            <nav>
+              {header.nav.map((item: any, i: number) => {
+                return (
+                  <div key={item._key}>
+                    {item.link.linklist?.length > 0 ? (
+                      <DropDownMenu dropdown={item} key={item._key} />
+                    ) : (
+                      <Link
+                        href={
+                          item.link.external_link
+                            ? item.link.external_link
+                            : linkResolver(item.link)
+                        }
+                        title={item.link.title}
+                      >
+                        {item.link.title}
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
+          )}
+        </nav>
+        <div
+          className={styles.backdrop}
+          onClick={() => {
+            setShowMenu(false);
+          }}
+        ></div>
+      </div>
     </>
   );
 }

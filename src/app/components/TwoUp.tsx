@@ -61,7 +61,7 @@ export default function TwoUp({ block }: TwoUpProps) {
           </div>
           <div className={styles.image}>
             <Image
-              src={block.image.url}
+              src={block.image.url + `?w=1200`}
               alt={block.image.alt}
               width={1200}
               height={1200}
