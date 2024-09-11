@@ -24,6 +24,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
   let change = await client.fetch<Changelog>(`
     *[_type == "changelog" && slug.current == "${slug}"][0]{
+    _id,
         title,
         slug,
         date,
@@ -62,7 +63,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         {change.change_items.length > 0 &&
           change.change_items.map((item) => {
             return (
-              <div>
+              <div key={item._id}>
                 <span>{item.change_type}</span>
                 <h4>{item.title}</h4>
                 <RichTextRenderer blocks={item.change_content} />
