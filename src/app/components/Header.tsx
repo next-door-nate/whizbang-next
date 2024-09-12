@@ -122,7 +122,7 @@ export default function Header({ header }: HeaderProps) {
                           </u>
                         </summary>
                         <nav>
-                          {item.link.linklist.map((link) => {
+                          {item.link.linklist.map((link: any) => {
                             return (
                               <Link
                                 key={link._key}
