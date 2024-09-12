@@ -4,7 +4,7 @@
   width: 100%;
   min-height: 65vh;
   height: auto;
-  display: grid;
+  display: flex;
   align-items: center;
   position: relative;
 
@@ -13,8 +13,6 @@
   }
 
   &[data-center-content="true"] {
-    display: flex;
-
     * {
       text-align: center;
     }
