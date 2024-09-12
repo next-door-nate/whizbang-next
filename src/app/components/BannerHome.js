@@ -6,7 +6,11 @@ import linkResolver from "../utils/linkResolver";
 
 export default function BannerHome({ banner }) {
   return (
-    <section data-block={banner._type} className={styles.banner}>
+    <section
+      data-block={banner._type}
+      data-center-content={banner.center == true ? true : false}
+      className={styles.banner}
+    >
       <Container type="normal">
         <div className={styles.content}>
           {banner.eyebrow && <span className="eyebrow">{banner.eyebrow}</span>}
@@ -22,7 +26,11 @@ export default function BannerHome({ banner }) {
                 return (
                   <Link
                     key={cta._key}
-                    href={cta.external_link ? cta.external_link : linkResolver(cta.link)}
+                    href={
+                      cta.external_link
+                        ? cta.external_link
+                        : linkResolver(cta.link)
+                    }
                     title={cta.text}
                     className="button"
                     data-button={i == 0 ? "primary" : "text"}
@@ -35,6 +43,17 @@ export default function BannerHome({ banner }) {
           )}
         </div>
       </Container>
+      {banner.image && (
+        <>
+          <img
+            className={styles.background}
+            src={banner.image.url + `?w=800`}
+            alt={banner.image.alt}
+            aria-hidden
+          />
+          {banner.show_dots && <div className="dots"></div>}
+        </>
+      )}
     </section>
   );
 }

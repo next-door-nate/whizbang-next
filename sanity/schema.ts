@@ -18,12 +18,14 @@ import richTextBlock from "./schemas/richTextBlock";
 import twoUp from "./schemas/twoUp";
 import logoGrid from "./schemas/logoGrid";
 import lede from "./schemas/lede";
+import changelog from "./schemas/changelog";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //documents
     page,
     post,
+    changelog,
     header,
     footer,
     theme,

@@ -13,7 +13,9 @@ export default function LogoGrid({ block }: LogoGridProps) {
     <section className={styles.block} data-block="logo_grid">
       <Container type="normal">
         <div className={styles.lede}>
-          {block.lede.eyebrow && <span className="eyebrow">{block.lede.eyebrow}</span>}
+          {block.lede.eyebrow && (
+            <span className="eyebrow">{block.lede.eyebrow}</span>
+          )}
           <h2>{block.lede.title}</h2>
           <RichTextRenderer blocks={block.lede.subtitle} />
         </div>
@@ -22,7 +24,12 @@ export default function LogoGrid({ block }: LogoGridProps) {
             {block.logos.map((company: any, i: number) => {
               return (
                 <div key={company._key} className={styles.logo}>
-                  <img src={company.image.url} alt={company.image.alt} />
+                  <img
+                    src={company.image.url}
+                    alt={company.image.alt}
+                    width={company.image.width}
+                    height={company.image.height}
+                  />
                 </div>
               );
             })}

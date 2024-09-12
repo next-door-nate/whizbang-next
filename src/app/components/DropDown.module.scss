@@ -18,16 +18,11 @@
       }
     }
   }
-  button {
-    padding-bottom: 0.8rem;
-  }
 }
 
 .dropdown {
-  padding: 0.8rem;
   position: absolute;
-  background: white;
-  border-radius: 0.8rem;
+  padding-top: 1.2rem;
   transform: translate3d(-1.6rem, 0.8rem, 0);
   transition:
     display 0.3s ease-in-out allow-discrete,
@@ -39,8 +34,7 @@
   color: rgba(0, 0, 0, 0.75);
   pointer-events: none;
   display: none;
-  flex-direction: column;
-  min-width: 16rem;
+
   filter: blur(1rem);
 
   &[data-show="true"] {
@@ -57,6 +51,14 @@
     }
   }
 
+  .wrapper {
+    background: white;
+    border-radius: 0.8rem;
+    flex-direction: column;
+    min-width: 16rem;
+    padding: 0.8rem;
+  }
+
   div {
     a {
       padding: 0.8rem;
@@ -71,4 +73,8 @@
       }
     }
   }
+}
+
+.spacer {
+  padding-top: 1.6rem;
 }
