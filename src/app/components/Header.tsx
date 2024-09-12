@@ -147,6 +147,7 @@ export default function Header({ header }: HeaderProps) {
                             : linkResolver(item.link)
                         }
                         title={item.link.title}
+                        className={styles.toplink}
                       >
                         {item.link.title}
                       </Link>
