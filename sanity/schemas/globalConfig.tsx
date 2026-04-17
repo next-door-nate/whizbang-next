@@ -1,3 +1,5 @@
+import type { Rule } from "@sanity/types";
+
 export default {
   name: "globalConfig",
   _id: "globalConfig",
@@ -16,7 +18,7 @@ export default {
       title: "Production Theme",
       type: "reference",
       to: { type: "theme" },
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
       group: "themes",
     },
     {
@@ -26,7 +28,7 @@ export default {
         "This theme will deploy to any branch/deploy previews, easily view the whole theme while doing development",
       type: "reference",
       to: { type: "theme" },
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
       group: "themes",
     },
     {

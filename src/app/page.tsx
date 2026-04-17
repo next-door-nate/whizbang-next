@@ -2,20 +2,10 @@ import { client } from "./utils/sanity/client";
 import { globalConfigQuery, metaQuery, pageQuery } from "./utils/queries";
 import Layout from "./components/Layout";
 import Blocks from "./components/Blocks";
-import { Metadata, ResolvingMetadata } from "next";
+import { GlobalConfigContent, MetaData, PageContent } from "@/types/content";
 
-type Page = {
-  _id: string;
-  title?: string;
-  meta?: {
-    title?: string;
-    description?: string;
-    image?: any;
-  };
-  slug?: {
-    current: string;
-  };
-  blocks?: any;
+type PageMetaResult = {
+  meta?: MetaData;
 };
 
 export async function generateMetadata() {
@@ -26,7 +16,7 @@ export async function generateMetadata() {
     }
   }`);
 
-  let page = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
+  let page = await client.fetch<PageMetaResult>(`*[_type == "page" && slug.current == "home"][0]{
     "meta": meta{
       ${metaQuery}
     }
@@ -52,11 +42,11 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  let home = await client.fetch<Page>(`*[_type == "page" && slug.current == "home"][0]{
+  let home = await client.fetch<PageContent>(`*[_type == "page" && slug.current == "home"][0]{
     ${pageQuery}
   }`);
 
-  let globalConfig = await client.fetch(globalConfigQuery);
+  let globalConfig = await client.fetch<GlobalConfigContent>(globalConfigQuery);
 
   return (
     <Layout header={globalConfig.header} footer={globalConfig.footer}>

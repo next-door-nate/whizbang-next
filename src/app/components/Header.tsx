@@ -7,13 +7,10 @@ import styles from "./Header.module.scss";
 import linkResolver from "../utils/linkResolver";
 import { useState } from "react";
 import DropDownMenu from "./DropDown";
+import { HeaderContent, NavItem, NavSubLink } from "@/types/content";
 
 type HeaderProps = {
-  header: {
-    nav: Array<any>;
-    logo: string;
-    ctas: Array<any>;
-  };
+  header: HeaderContent;
 };
 
 export default function Header({ header }: HeaderProps) {
@@ -32,7 +29,7 @@ export default function Header({ header }: HeaderProps) {
               </Link>
               {header.nav && (
                 <nav>
-                  {header.nav.map((item: any, i: number) => {
+                  {header.nav.map((item: NavItem, i: number) => {
                     return (
                       <div key={item._key}>
                         {item.link.linklist?.length > 0 ? (
@@ -102,7 +99,7 @@ export default function Header({ header }: HeaderProps) {
           </Link>
           {header.nav && (
             <nav>
-              {header.nav.map((item: any, i: number) => {
+              {header.nav.map((item: NavItem, i: number) => {
                 return (
                   <div key={item._key}>
                     {item.link.linklist?.length > 0 ? (
@@ -122,7 +119,7 @@ export default function Header({ header }: HeaderProps) {
                           </u>
                         </summary>
                         <nav>
-                          {item.link.linklist.map((link: any) => {
+                          {item.link.linklist.map((link: NavSubLink) => {
                             return (
                               <Link
                                 key={link._key}

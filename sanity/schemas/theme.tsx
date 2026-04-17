@@ -1,3 +1,5 @@
+import type { PreviewValue, Rule } from "@sanity/types";
+
 export default {
   name: "theme",
   title: "Theme",
@@ -15,7 +17,7 @@ export default {
       description: "Select the page you want to be the homepage on the marketing site.",
       type: "reference",
       to: [{ type: "page" }],
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "header_menu",
@@ -24,7 +26,7 @@ export default {
         "Build complex menus from the menu area, assign them here to update the menu everywhere",
       type: "reference",
       to: { type: "header" },
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "footer_menu",
@@ -33,14 +35,14 @@ export default {
         "Build complex menus from the module area, assign them here to update the menu everywhere",
       type: "reference",
       to: { type: "footer" },
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
   ],
   preview: {
     select: {
       title: "themeTitle",
     },
-    prepare: (selection: any) => {
+    prepare: (selection: PreviewValue) => {
       return {
         ...selection,
       };

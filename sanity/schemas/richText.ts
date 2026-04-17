@@ -1,4 +1,5 @@
 import { LinkIcon, StarIcon } from "@sanity/icons";
+import type { Rule } from "@sanity/types";
 import { allDocumentTypes } from "../utils/referenceHelper";
 export default {
   name: "rich_text",
@@ -46,8 +47,8 @@ export default {
                 title: "External Link",
                 name: "external_link",
                 type: "url",
-                validation: (Rule: any) =>
-                  Rule.uri({
+                validation: (rule: Rule) =>
+                  rule.uri({
                     scheme: ["http", "https", "mailto", "tel"],
                   }),
               },

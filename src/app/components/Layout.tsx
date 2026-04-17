@@ -1,10 +1,11 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import { FooterContent, HeaderContent } from "@/types/content";
 
 type LayoutProps = {
   children: React.ReactNode;
-  header: any;
-  footer: any;
+  header: HeaderContent;
+  footer: FooterContent;
 };
 
 export default function Layout({ children, header, footer }: LayoutProps) {

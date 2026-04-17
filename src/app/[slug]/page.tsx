@@ -1,22 +1,15 @@
-import Image from "next/image";
-
 import { client } from "../utils/sanity/client";
 import { pageQuery, globalConfigQuery, metaQuery } from "../utils/queries";
 import Layout from "../components/Layout";
 import Blocks from "../components/Blocks";
+import { GlobalConfigContent, MetaData, PageContent } from "@/types/content";
 
-type Page = {
-  _id: string;
-  title?: string;
-  meta?: {
-    title?: string;
-    description?: string;
-    image?: any;
-  };
+type PageMetaResult = {
+  meta?: MetaData;
   slug?: {
     current: string;
   };
-  blocks: Array<any>;
+  _type?: string;
 };
 
 type Props = {
@@ -30,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
     }
   }`);
 
-  let page = await client.fetch<Page>(`*[_type == "page" && slug.current == "${params.slug}"][0]{
+  let page = await client.fetch<PageMetaResult>(`*[_type == "page" && slug.current == "${params.slug}"][0]{
     "meta": meta{
       ${metaQuery}
     },
@@ -58,9 +51,9 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  let globalConfig = await client.fetch(globalConfigQuery);
+  let globalConfig = await client.fetch<GlobalConfigContent>(globalConfigQuery);
   const { slug } = params;
-  let page = await client.fetch<Page>(`
+  let page = await client.fetch<PageContent>(`
     *[_type == "page" && slug.current == "${slug}"][0]{
       ${pageQuery}
     }`);
@@ -75,9 +68,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  let pages = await client.fetch<Page[]>(`*[_type == "page"]`);
+  let pages = await client.fetch<PageContent[]>(`*[_type == "page"]`);
 
-  return pages.map((page: any) => ({
-    slug: page.slug.current,
-  }));
+  return pages
+    .filter((page) => page.slug?.current)
+    .map((page) => ({
+      slug: page.slug!.current,
+    }));
 }

@@ -1,11 +1,10 @@
 import RichTextRenderer from "./RichTextRenderer";
-import Image from "next/image";
 import styles from "./LogoGrid.module.scss";
 import Container from "./Container";
-import { NextMiddleware } from "next/server";
+import { LogoGridBlock } from "@/types/content";
 
 type LogoGridProps = {
-  block: any;
+  block: LogoGridBlock;
 };
 
 export default function LogoGrid({ block }: LogoGridProps) {
@@ -21,7 +20,7 @@ export default function LogoGrid({ block }: LogoGridProps) {
         </div>
         {block.logos && (
           <div className={styles.logos}>
-            {block.logos.map((company: any, i: number) => {
+            {block.logos.map((company) => {
               return (
                 <div key={company._key} className={styles.logo}>
                   <img
