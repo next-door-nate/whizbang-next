@@ -5,14 +5,10 @@ import Link from "next/link";
 import styles from "./Footer.module.scss";
 import RichTextRenderer from "./RichTextRenderer";
 import SocialIcon from "./SocialIcon";
+import { FooterContent, NavSubLink } from "@/types/content";
 
 type FooterProps = {
-  footer: {
-    nav: Array<any>;
-    social: Array<any>;
-    copyright: string;
-    blurb: Array<any>;
-  };
+  footer: FooterContent;
 };
 
 export default function Footer({ footer }: FooterProps) {
@@ -76,7 +72,7 @@ export default function Footer({ footer }: FooterProps) {
 
                     {item.link.linklist?.length > 0 && (
                       <nav className={styles.sublinks}>
-                        {item.link.linklist.map((sublink: any) => {
+                        {item.link.linklist.map((sublink: NavSubLink) => {
                           return (
                             <Link
                               key={sublink._key}

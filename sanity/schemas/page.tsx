@@ -1,3 +1,5 @@
+import type { Rule } from "@sanity/types";
+
 export default {
   type: "document",
   name: "page",
@@ -17,7 +19,7 @@ export default {
       title: "Title",
       type: "string",
       group: "main",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "slug",
@@ -28,7 +30,7 @@ export default {
         maxLength: 96,
       },
       group: "main",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       type: "blocks",
